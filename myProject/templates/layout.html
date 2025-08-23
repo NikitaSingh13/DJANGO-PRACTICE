@@ -1,0 +1,21 @@
+{% comment %} #FOR TAILWIND {% endcomment %}
+{% load static tailwind_tags %}
+
+{% comment %} A COMMON FILE THAT'S USED EVERYWHERE IN THE PROJECT LIKE NAVBAR, HEADER, FOOTER ETC {% endcomment %}
+{% comment %} IT IS MADE LIKE THAT ONCE MADE WE DON'T NEED TO MAKE IT AGAIN  {% endcomment %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default value{% endblock  %}</title>
+    <link rel="stylesheet" href={% static "style.css" %}>
+    {% tailwind_css %}
+</head>
+<body>
+    <nav>This is our navbar</nav>
+    {% block content %}{% endblock  %}
+</body>
+</html>
