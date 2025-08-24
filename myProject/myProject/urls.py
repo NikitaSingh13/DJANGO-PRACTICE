@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include #include will include the urls of the apps to the project
+#import the settings and all the configurations to use everything that's inside the seetings.py like the mdeia etc etc
+from django.conf import settings
+from django.conf.urls.static import static
 # . represents current diretory here
 from . import views
 
@@ -33,4 +36,5 @@ urlpatterns = [
 
     #HOT RELOAD - ALWAYS IN THE LAST FOR AUTO RELAD THAT IF YOU REMEMBER WE INSTALLED WITH TAILWIND -> python -m pip install 'django-tailwind[reload]'
     path("__reload__/", include("django_browser_reload.urls"))
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) # STATIC IS A METHOD ITSELF SO USE IT HERE AND TELL IT ABOUT THE SETTING'S MEDIA URL AND MEDIA ROOT DIRECTORY
+

@@ -6,4 +6,22 @@ HOME PAGE
 
 {% block content %}
 <h1>THE CONTENT OF THE MYAPP</h1>
+
+<div class = "grid grid-cols-3 gap-4 m-4">
+    {% comment %} for loop block {% endcomment %}
+    {% for user in users %}
+        <div class="bg-blue-950 p-5 rounded">
+            <img class="rounded shadow-lg" src="{{user.image.url}}" alt=""> {% comment %} you need to write url for image everytime because it  {% endcomment %}
+            <h1 class = "text-2xl font-bold" >{{user.name}}</h1>
+            <h1>{{user.gender}}</h1>
+            <a href="{% url 'user_discription' user.id %}">
+                <button class="btn btn-primary">
+                    discription - {{user.id}}
+                </button>
+            </a>
+        </div>
+</div>
+    {% endfor %} 
+</div>
 {% endblock  %}
+
